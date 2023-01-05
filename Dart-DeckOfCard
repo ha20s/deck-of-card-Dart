@@ -1,0 +1,40 @@
+import 'dart:math';
+void main() {
+  var deck = new Deck();
+  print(deck);
+ 
+}
+
+class Deck {
+  List<Card> cards = []; 
+  Deck() {
+    var houses = ['Clubs', 'Diamonds', 'Hearts', 'Spades'];
+    var numbers = [1, 2, 3, 4,5, 6,7,8,9,10,11,12,13];
+    var colorArray = ['Black', 'Red'];
+    
+     for(var house in houses) {
+      for(var number in numbers) {
+      String color =  colorArray[Random().nextInt(colorArray.length)];
+        var card = new Card(house, number, color);
+        cards.add(card); 
+      }
+    }
+  }
+  
+  toString() {
+    return cards.toString();
+  }
+
+}
+
+class Card {
+  String house;
+  int number;
+  String color;
+  
+  Card(this.house, this.number , this.color);
+  
+  toString() {
+    return '$house $number $color';
+  }
+}
